@@ -19,6 +19,24 @@ include this app's custom native modules. Re-run `npm run prebuild` after
 changing native dependencies or app configuration; use
 `npm run prebuild:clean` to regenerate the native projects from scratch.
 
+## Development builds and emulators
+
+EAS CLI is installed as a project development dependency. Log in with
+`npx eas-cli login`, then start a cloud development build for an Android
+emulator or iOS Simulator:
+
+```sh
+npm run eas:build:android-emulator
+npm run eas:build:ios-simulator
+```
+
+The Android profile produces an installable APK; the iOS profile targets the
+Simulator. Download and install the completed build on the matching emulator,
+then run `npm start` to connect to Metro. EAS cloud builds require an Expo
+account and this app to be linked to an Expo project. For local builds instead,
+`npm run android` and `npm run ios` require the corresponding Android Studio or
+Xcode toolchain and a configured emulator/simulator.
+
 The `expo-speech` and `expo-notifications` packages are installed and ready to
 use from the app. Notification permission requests and delivery behavior
 should be implemented by the feature that schedules notifications.
